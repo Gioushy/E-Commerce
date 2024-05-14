@@ -1,3 +1,4 @@
+-- Creating the category table
 CREATE TABLE category (
 	"id" UUID DEFAULT gen_random_uuid(),
 	"name" VARCHAR(50) NOT NULL,
@@ -8,7 +9,7 @@ CREATE TABLE category (
 		REFERENCES category("id")
 	
 );
-
+-- Creating product table
 CREATE TABLE product (
 	"id" UUID DEFAULT gen_random_uuid(),
 	"name" VARCHAR(50) NOT NULL,
@@ -17,7 +18,7 @@ CREATE TABLE product (
 	stock_quantity SMALLINT,
 	PRIMARY KEY ("id")
 );
-
+-- Creating the associative entity between products and categories
 CREATE TABLE categoryproducts (
 	category_id UUID,
 	product_id UUID,
@@ -29,8 +30,8 @@ CREATE TABLE categoryproducts (
 		FOREIGN KEY(product_id)
 			REFERENCES product("id")
 );
-
-CREATE TABLE customers(
+-- Creating customer table
+CREATE TABLE customer(
 	"id" UUID DEFAULT gen_random_uuid(),
 	first_name VARCHAR(50) NOT NULL,
 	last_name VARCHAR(50) NOT NULL,
@@ -40,7 +41,7 @@ CREATE TABLE customers(
 	CONSTRAINT email_format
 		CHECK (email ~* '^[A-Za-z0-9._+%-]+@[A-Za-z0-9.-]+[.][A-Za-z]+$')
 );
-
+-- Creating order table
 CREATE TABLE "order"(
 	"id" UUID DEFAULT gen_random_uuid(),
 	customer_id UUID,
@@ -51,7 +52,7 @@ CREATE TABLE "order"(
 		FOREIGN KEY(customer_id)
 			REFERENCES customer("id")	
 );
-
+-- Creating the associative entity between order and product
 CREATE TABLE order_details(
 	"id" UUID DEFAULT gen_random_uuid(),
 	product_id UUID,
