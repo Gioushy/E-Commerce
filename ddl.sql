@@ -45,7 +45,7 @@ CREATE TABLE customer(
 CREATE TABLE "order"(
 	"id" UUID DEFAULT gen_random_uuid(),
 	customer_id UUID,
-	order_date TIMESTAMPTZ,
+	date DATE NOT NULL DEFAULT CURRENT_DATE,
 	total_amount DECIMAL(9,2) NOT NULL,
 	PRIMARY KEY("id"),
 	CONSTRAINT fk_customer_id
