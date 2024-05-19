@@ -1,5 +1,5 @@
 -- SQL query to generate a daily report of the total revenue for a specific date, where the placeholder is the date (?)
-SELECT SUM(total_amount) AS daily_revenue FROM order WHERE DATE(date) = ? ;
+SELECT SUM(total_amount) AS daily_revenue FROM order WHERE DATE(shipped_date) = ? ;
 
 -- SQL query to generate monthly report of the top-selling products in a given month, where the placeholder is the month(?)
 SELECT to_char(O.date, 'YYYY-MM') AS month, OD.product_id, SUM(OD.quantity) AS total_quantity,P.name
