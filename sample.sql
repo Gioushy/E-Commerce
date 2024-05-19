@@ -10,7 +10,7 @@ GROUP BY OD.product_id,month,P.name
 HAVING to_char(O.date, 'YYYY-MM') = 'YYYY-XX'
 ORDER BY total_quantity DESC;
 
--- SQL to retrieve a list of customers who have placed orders totaling more than 500 in the past month.
+-- SQL query to retrieve a list of customers who have placed orders totaling more than 500 in the past month.
 SELECT C.id, CONCAT(C.first_name,' ',C.last_name) AS full_name, SUM(O.total_amount) AS total_orders_amount, to_char(O.date, 'YYYY-MM') AS month
 FROM customer C
 JOIN order O ON c.id = O.customer_id
@@ -18,3 +18,10 @@ GROUP BY C.id, month
 HAVING to_char(O.date, 'YYYY-MM') = to_char(NOW() - '1 month'::interval, 'YYYY-MM') 
 	AND SUM(O.total_amount) > 500
 ORDER BY total_orders_amount DESC;
+
+-- SQL query to search for all products with the word "camera" in either product namr or description.
+SELECT * FROM product
+WHERE name LIKE '%camera%' OR description LIKE '%camera%';
+
+--SQL query to suggest popular products in the same category for the same author, excluding the purchased product from the recommendations.
+
