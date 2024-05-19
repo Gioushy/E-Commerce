@@ -58,8 +58,8 @@ We can simply define the relationship into one sentences: <br/>
 ## Entity Relationship Diagram (ERD):
 As indicated from the above section that there are several types of relationships such: One-To-Many, One-To-Many Recursive, Many-To-Many. Therefore, additional entites are introduced in order to represent to many-to-many relationship (associative entity) which will be displayed in the following diagram: <br/>
 
-![image](https://github.com/Gioushy/E-Commerce/assets/105521854/10257713-07d3-46c0-a18d-fe608c89eec9)
+![image](https://github.com/Gioushy/E-Commerce/assets/105521854/62cb4fbf-595a-448e-89b6-e83d5c2d349c)
 <br/>
 
-[### Data Definiton Language: ](url)
+ • [Data Definiton Language](https://github.com/Gioushy/E-Commerce/blob/main/ddl.sql)
 
