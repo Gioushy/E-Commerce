@@ -61,5 +61,6 @@ As indicated from the above section that there are several types of relationship
 ![image](https://github.com/Gioushy/E-Commerce/assets/105521854/62cb4fbf-595a-448e-89b6-e83d5c2d349c)
 <br/>
 
- • [Data Definiton Language](https://github.com/Gioushy/E-Commerce/blob/main/ddl.sql)
+ • [Data Definiton Language](https://github.com/Gioushy/E-Commerce/blob/main/ddl.sql) <br/>
+ • [Queries Sample](https://github.com/Gioushy/E-Commerce/blob/main/sample.sql)
 
