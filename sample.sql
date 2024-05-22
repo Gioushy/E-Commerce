@@ -2,12 +2,12 @@
 SELECT SUM(total_amount) AS daily_revenue FROM order WHERE DATE(shipped_date) = ? ;
 
 -- SQL query to generate monthly report of the top-selling products in a given month, where the placeholder is the month(?)
-SELECT to_char(O.date, 'YYYY-MM') AS month, OD.product_id, SUM(OD.quantity) AS total_quantity,P.name
+SELECT to_char(O.order_date, 'YYYY-MM') AS month, OD.product_id, SUM(OD.quantity) AS total_quantity,P.name
 FROM order_details OD
 JOIN order O ON OD.order_id = O.id
 JOIN product P ON OD.product_id = P.id
 GROUP BY OD.product_id,month,P.name
-HAVING to_char(O.date, 'YYYY-MM') = 'YYYY-XX'
+HAVING to_char(O.order_date, 'YYYY-MM') = 'YYYY-XX'
 ORDER BY total_quantity DESC;
 
 -- SQL query to retrieve a list of customers who have placed orders totaling more than 500 in the past month.
