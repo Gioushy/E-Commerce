@@ -13,9 +13,9 @@ CREATE TABLE category (
 CREATE TABLE product (
 	"id" INT SERIAL,
 	"name" VARCHAR(100) NOT NULL,
-	description TEXT NOT NULL,
-	price DECIMAL(9,2) NOT NULL,
-	stock_quantity SMALLINT NOT NULL,
+	description TEXT,
+	price DECIMAL(9,2) NOT NULL CHECK (price > 0),
+	stock_quantity SMALLINT NOT NULL CHECK (stock_quantity > 0),
 	PRIMARY KEY ("id")
 );
 -- Creating the associative entity between products and categories
@@ -48,7 +48,7 @@ CREATE TABLE "order"(
 	order_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	shipped_date TIMESTAMP,
 	active BOOLEAN,
-	total_amount DECIMAL(9,2) NOT NULL,
+	total_amount DECIMAL(9,2) NOT NULL CHECK (total_amount > 0),
 	PRIMARY KEY("id"),
 	CONSTRAINT fk_customer_id
 		FOREIGN KEY(customer_id)
@@ -59,8 +59,8 @@ CREATE TABLE order_details(
 	"id" INT SERIAL,
 	product_id INT,
 	order_id INT,
-	quantity SMALLINT NOT NULL,
-	unit_price DECIMAL(9,2) NOT NULL,
+	quantity SMALLINT NOT NULL CHECK (quantity > 0),
+	unit_price DECIMAL(9,2) NOT NULL CHECK (unit_price > 0),
 	PRIMARY KEY("id"),
 	CONSTRAINT fk_product_id
 		FOREIGN KEY(product_id)
