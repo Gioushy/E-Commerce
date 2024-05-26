@@ -26,6 +26,14 @@ Another main pillar of the business is the customer, as he is main target for an
 • password <br/>
 <br/>
 
+### Seller:
+Another main pillar of the business is the seller of a specific product, as he is main supplier for products to be marketed on the website, the following are the attributes of the seller entity: <br/>
+• name <br/>
+• phone number <br/>
+• email <br/>
+• password <br/>
+<br/>
+
 ### Order:
 Orders define what is the business is all about as certain customers develop a liking into a certain product and they decide to purchase it (making an order) and this is simply how the business work. The following are the attributes of the order entity: <br/>
 •	products ordered <br/>
