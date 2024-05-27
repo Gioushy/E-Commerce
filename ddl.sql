@@ -5,9 +5,35 @@ CREATE TABLE category (
 	parent_category_id INT,
 	PRIMARY KEY ("id"),
 	CONSTRAINT fk_subcategory
-		FOREIGN KEY (subcategory_id)
+		FOREIGN KEY (parent_category_id)
 		REFERENCES category("id")
 	
+);
+-- Creating address table
+CREATE TABLE address (
+	"id" SERIAL,
+	country VARCHAR(100) NOT NULL,
+	city VARCHAR(100) NOT NULL,
+	"state" VARCHAR(100) NOT NULL,
+	street_name VARCHAR(100) NOT NULL,
+	block_number VARCHAR(50),
+	postal_code VARCHAR(50) NOT NULL,
+	PRIMARY KEY("id"),
+	);
+-- Creating seller table
+CREATE TABLE seller(
+	"id" SERIAL,
+	first_name VARCHAR(100) NOT NULL,
+	phone_number VARCHAR(100) NOT NULL,
+	email VARCHAR(100) NOT NULL,
+	password VARCHAR(100) NOT NULL,
+	address_id INT,
+	PRIMARY KEY("id"),
+	CONSTRAINT email_format
+		CHECK (email ~* '^[A-Za-z0-9._+%-]+@[A-Za-z0-9.-]+[.][A-Za-z]+$'),
+	CONSTRAINT fk_address_id
+		FOREIGN KEY(address_id)
+			REFERENCES address("id")
 );
 -- Creating product table
 CREATE TABLE product (
@@ -34,37 +60,11 @@ CREATE TABLE category_products (
 		FOREIGN KEY(product_id)
 			REFERENCES product("id")
 );
--- Creating address table
-CREATE TABLE address (
-	"id" SERIAL,
-	country VARCHAR(100) NOT NULL,
-	city VARCHAR(100) NOT NULL,
-	"state" VARCHAR(100) NOT NULL,
-	street_name VARCHAR(100) NOT NULL,
-	block_number VARCHAR(50),
-	postal_code VARCHAR(50) NOT NULL,
-	PRIMARY KEY("id"),
-	);
 -- Creating customer table
 CREATE TABLE customer(
 	"id" SERIAL,
 	first_name VARCHAR(100) NOT NULL,
 	last_name VARCHAR(100) NOT NULL,
-	email VARCHAR(100) NOT NULL,
-	password VARCHAR(100) NOT NULL,
-	address_id INT,
-	PRIMARY KEY("id"),
-	CONSTRAINT email_format
-		CHECK (email ~* '^[A-Za-z0-9._+%-]+@[A-Za-z0-9.-]+[.][A-Za-z]+$'),
-	CONSTRAINT fk_address_id
-		FOREIGN KEY(address_id)
-			REFERENCES address("id")
-);
--- Creating seller table
-CREATE TABLE seller(
-	"id" SERIAL,
-	first_name VARCHAR(100) NOT NULL,
-	phone_number VARCHAR(100) NOT NULL,
 	email VARCHAR(100) NOT NULL,
 	password VARCHAR(100) NOT NULL,
 	address_id INT,
