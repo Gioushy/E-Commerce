@@ -27,12 +27,12 @@ WHERE name LIKE '%camera%' OR description LIKE '%camera%';
 (SELECT P.id, P.name, P.price, P.stock_quantity FROM product P 
 JOIN category_products CP ON P.id = CP.product_id
 WHERE CP.category_id IN (
-	SELECT category_id FROM category_products CP 
+	SELECT DISTINCT category_id FROM category_products CP 
 	JOIN product P on CP.product_id = P.id
 	JOIN order_details OD on p.id = OD.product_id
 	JOIN orders O on OD.order_id = O.id
 	JOIN customer C on O.customer_id = C.id
-	WHERE CONCAT(C.first_name,' ',C.last_name) = 'John Doe'
+	WHERE customer_id = 1
 ))
 EXCEPT
 (SELECT P.id, P.name, P.price, P.stock_quantity FROM product P 
@@ -40,5 +40,5 @@ JOIN order_details OD on p.id = OD.product_id
 JOIN category_products CP ON P.id = CP.product_id
 JOIN orders O on OD.order_id = O.id
 JOIN customer C on O.customer_id = C.id
-WHERE CONCAT(C.first_name,' ',C.last_name) = 'John Doe');
+WHERE customer_id = 1);
 
