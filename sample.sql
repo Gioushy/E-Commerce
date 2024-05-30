@@ -34,7 +34,7 @@ SELECT *
 FROM product
 WHERE product_search_idx @@ to_tsquery('english','laptop');
 
---SQL query to suggest popular products in the same category for the same author, excluding the purchased product from the recommendations.
+--SQL query to suggest popular products in the same category, excluding the purchased product from the recommendations.
 (SELECT P.id, P.name, P.price, P.stock_quantity FROM product P 
 JOIN category_products CP ON P.id = CP.product_id
 WHERE CP.category_id IN (
@@ -45,6 +45,33 @@ WHERE CP.category_id IN (
 	JOIN customer C on O.customer_id = C.id
 	WHERE customer_id = 1
 ))
+EXCEPT
+(SELECT P.id, P.name, P.price, P.stock_quantity FROM product P 
+JOIN order_details OD on p.id = OD.product_id
+JOIN category_products CP ON P.id = CP.product_id
+JOIN orders O on OD.order_id = O.id
+JOIN customer C on O.customer_id = C.id
+WHERE customer_id = 1);
+
+--SQL query to suggest popular products in the same category for the same seller, excluding the purchased product from the recommendations.
+(SELECT P.id, P.name, P.price, P.stock_quantity FROM product P 
+JOIN category_products CP ON P.id = CP.product_id
+WHERE CP.category_id IN (
+	SELECT DISTINCT category_id FROM category_products CP 
+	JOIN product P on CP.product_id = P.id
+	JOIN order_details OD on p.id = OD.product_id
+	JOIN orders O on OD.order_id = O.id
+	JOIN customer C on O.customer_id = C.id
+	WHERE customer_id = 1
+)
+ AND P.seller_id IN (
+	SELECT DISTINCT seller_id FROM product P
+	JOIN order_details OD on p.id = OD.product_id
+	JOIN orders O on OD.order_id = O.id
+	JOIN customer C on O.customer_id = C.id
+	WHERE customer_id = 1
+ )
+)
 EXCEPT
 (SELECT P.id, P.name, P.price, P.stock_quantity FROM product P 
 JOIN order_details OD on p.id = OD.product_id
