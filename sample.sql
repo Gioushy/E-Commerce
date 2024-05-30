@@ -19,9 +19,20 @@ HAVING to_char(O.order_date, 'YYYY-MM') = to_char(NOW() - '1 month'::interval, '
 	AND SUM(O.total_amount) > 500
 ORDER BY total_orders_amount DESC;
 
--- SQL query to search for all products with the word "camera" in either product namr or description.
+-- SQL query to search for all products with the word "laptop" in either product namr or description.
 SELECT * FROM product
-WHERE name LIKE '%camera%' OR description LIKE '%camera%';
+WHERE name LIKE '%camera%' OR description LIKE '%laptop%';
+
+-- Full text search
+ALTER TABLE product
+    ADD COLUMN product_search_idx tsvector
+               GENERATED ALWAYS AS (to_tsvector('english', coalesce(name, '') || ' ' || coalesce(description, ''))) STORED;
+			   
+CREATE INDEX product_idx ON product USING GIN (product_search_idx);
+
+SELECT *
+FROM product
+WHERE product_search_idx @@ to_tsquery('english','laptop');
 
 --SQL query to suggest popular products in the same category for the same author, excluding the purchased product from the recommendations.
 (SELECT P.id, P.name, P.price, P.stock_quantity FROM product P 
