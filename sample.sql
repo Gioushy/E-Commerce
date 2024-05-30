@@ -80,3 +80,25 @@ JOIN orders O on OD.order_id = O.id
 JOIN customer C on O.customer_id = C.id
 WHERE customer_id = 1);
 
+-- Denormalization on category table
+CREATE TABLE denormalized_categories (
+    parent_category_id INT,
+    parent_category_name VARCHAR(150),
+    subcategory_id INT,
+    subcategory_name VARCHAR(150)
+);
+
+INSERT INTO denormalized_categories (parent_category_id, parent_category_name, subcategory_id, subcategory_name)
+SELECT 
+    parent.id AS parent_category_id,
+    parent.name AS parent_category_name,
+    sub.id AS subcategory_id,
+    sub.name AS subcategory_name
+FROM 
+    category parent
+LEFT JOIN 
+    category sub
+ON 
+    parent.id = sub.parent_category_id
+WHERE 
+    sub.id IS NOT NULL;
