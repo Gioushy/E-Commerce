@@ -63,6 +63,10 @@ We can simply define the relationship into two sentences: <br/>
 We can simply define the relationship into one sentences: <br/>
 • "each customer orders zero, one or more orders" <br/>
 
+### Seller-Product Relationship:
+We can simply define the relationship into one sentences: <br/>
+• "each seller sells zero, one or more product" <br/>
+
 ## Entity Relationship Diagram (ERD):
 As indicated from the above section that there are several types of relationships such: One-To-Many, One-To-Many Recursive, Many-To-Many. Therefore, additional entites are introduced in order to represent to many-to-many relationship (associative entity) which will be displayed in the following diagram: <br/>
 
