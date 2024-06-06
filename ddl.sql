@@ -18,7 +18,7 @@ CREATE TABLE address (
 	street_name VARCHAR(100) NOT NULL,
 	block_number VARCHAR(50),
 	postal_code VARCHAR(50) NOT NULL,
-	PRIMARY KEY("id"),
+	PRIMARY KEY("id")
 	);
 -- Creating seller table
 CREATE TABLE seller(
