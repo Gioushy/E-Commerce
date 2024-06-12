@@ -1,8 +1,8 @@
 # Write SQL query to search for all products with the word "laptop" in either product name or description.
 ## Initial Query:
 ```
-SELECT * FROM product
-WHERE "name" ILIKE '%laptop%';
+SELECT name,description,price,stock_quantity FROM product
+WHERE "name" ILIKE '%laptop%' OR description ILIKE '%laptop;
 ```
 ## Query Plan Before:
 ![image](https://github.com/Gioushy/E-Commerce/assets/105521854/aa6a4ef2-1800-4162-8c95-35468321db0c)
@@ -21,7 +21,7 @@ CREATE INDEX product_idx ON product USING GIN (product_search_idx);
 ```
 ## Final Query:
 ```
-SELECT *
+SELECT name,description,price,stock_quantity
 FROM product
 WHERE product_search_idx @@ to_tsquery('english','laptop');
 ```
