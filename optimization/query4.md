@@ -1,7 +1,7 @@
 # Write SQL Query to List products that have low stock quantities of less than 10 quantities.
 ## Initial Query:
 ```
-SELECT * FROM product WHERE stock_quantity < 10;
+SELECT name,description,price,stock_quantity FROM product WHERE stock_quantity < 10;
 ```
 ## Query Plan Before:
 ![image](https://github.com/Gioushy/E-Commerce/assets/105521854/2128a8fd-de07-4ef4-bfe0-b70e87f856d6)
@@ -13,7 +13,7 @@ CREATE INDEX product_quantity_idx ON product(stock_quantity);
 ```
 ## Final Query:
 ```
-SELECT * FROM product WHERE stock_quantity < 10;
+SELECT name,description,price,stock_quantity FROM product WHERE stock_quantity < 10;
 ```
 
 ## Query Plan After:
