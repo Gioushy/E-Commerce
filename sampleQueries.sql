@@ -20,8 +20,8 @@ HAVING to_char(O.order_date, 'YYYY-MM') = to_char(NOW() - '1 month'::interval, '
 ORDER BY total_orders_amount DESC;
 
 -- SQL query to search for all products with the word "laptop" in either product name or description.
-SELECT * FROM product
-WHERE name LIKE '%laptop%' OR description LIKE '%laptop%';
+SELECT name,description,price,stock_quantity FROM product
+WHERE name ILIKE '%laptop%' OR description ILIKE '%laptop%';
 
 -- Full text search
 ALTER TABLE product
@@ -30,7 +30,7 @@ ALTER TABLE product
 			   
 CREATE INDEX product_idx ON product USING GIN (product_search_idx);
 
-SELECT *
+SELECT name,description,price,stock_quantity
 FROM product
 WHERE product_search_idx @@ to_tsquery('english','laptop');
 
