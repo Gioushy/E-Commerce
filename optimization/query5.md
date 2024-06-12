@@ -2,21 +2,30 @@
 ## Initial Query:
 ```
 SELECT * FROM product
-WHERE "name" ILIKE '%camera%';
+WHERE "name" ILIKE '%laptop%';
 ```
 ## Query Plan Before:
-![image](https://github.com/Gioushy/E-Commerce/assets/105521854/c393e176-685b-4675-9563-278ef3d8dbb6)
+![image](https://github.com/Gioushy/E-Commerce/assets/105521854/aa6a4ef2-1800-4162-8c95-35468321db0c)
+
 
 
 ## Optimization Technique:
-Apply Full-Text scan on the table products using columns name and description.
+Apply Full-Text search on the table products using columns name and description.
 ```
-CREATE INDEX product_quantity_idx ON product(stock_quantity);
+ALTER TABLE product
+    ADD COLUMN product_search_idx tsvector
+               GENERATED ALWAYS AS (to_tsvector('english', coalesce(name, '') || ' ' || coalesce(description, ''))) STORED;
+```
+```
+CREATE INDEX product_idx ON product USING GIN (product_search_idx);
 ```
 ## Final Query:
 ```
-SELECT * FROM product WHERE stock_quantity < 10;
+SELECT *
+FROM product
+WHERE product_search_idx @@ to_tsquery('english','laptop');
 ```
 
 ## Query Plan After:
-![image](https://github.com/Gioushy/E-Commerce/assets/105521854/e0dc1aa6-3c81-4800-bfcb-a0e5fa3f7f1f)
+![image](https://github.com/Gioushy/E-Commerce/assets/105521854/f429384a-8a81-468e-9d04-fa87ee73971a)
+
