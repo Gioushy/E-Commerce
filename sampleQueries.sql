@@ -19,9 +19,9 @@ HAVING to_char(O.order_date, 'YYYY-MM') = to_char(NOW() - '1 month'::interval, '
 	AND SUM(O.total_amount) > 500
 ORDER BY total_orders_amount DESC;
 
--- SQL query to search for all products with the word "laptop" in either product namr or description.
+-- SQL query to search for all products with the word "laptop" in either product name or description.
 SELECT * FROM product
-WHERE name LIKE '%camera%' OR description LIKE '%laptop%';
+WHERE name LIKE '%laptop%' OR description LIKE '%laptop%';
 
 -- Full text search
 ALTER TABLE product
