@@ -1,5 +1,5 @@
 # Write SQL Query to Retrieve the total number of products in each category.
-## Query before optimization:
+## Initial Query:
 ```
 SELECT category_id, COUNT(product_id) FROM category_products GROUP BY category_id;
 ```
@@ -19,5 +19,10 @@ SELECT CP.category_id, C.name, COUNT(product_id) FROM category_products CP
 JOIN category C ON CP.category_id = C.id
 GROUP BY category_id,C.name;
 ```
+## Final Query:
+```
+SELECT * FROM category_products_count;
+```
+
 ## Query Plan After:
 ![image](https://github.com/Gioushy/E-Commerce/assets/105521854/2ad2cffa-1fb7-43c2-882c-81137d9538d4)
