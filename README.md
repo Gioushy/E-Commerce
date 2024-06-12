@@ -77,6 +77,26 @@ As indicated from the above section that there are several types of relationship
 
  • [Data Definiton Language](https://github.com/Gioushy/E-Commerce/blob/main/ddl.sql) <br/>
  • [Queries Sample](https://github.com/Gioushy/E-Commerce/blob/main/sample.sql) <br/>
- • [Data Generation Functions](https://github.com/Gioushy/E-Commerce/tree/main/functions) <br/>
- • [Queries Optimization](https://github.com/Gioushy/E-Commerce/tree/main/optimization)
+## Data Generation Functions:
+In the below links are functions that are used to generate data for the whole database with 100 category, 1000 addresses, 10000 sellers, 100k products, 1 million customer, 2 million order and 5 million order_details: <br/>
+• [Categories Data Generation Function](https://github.com/Gioushy/E-Commerce/blob/main/functions/categoryData.sql) <br/>
+• [Addresses Data Generation Function](https://github.com/Gioushy/E-Commerce/blob/main/functions/addressData.sql) <br/>
+• [Sellers Data Generation Function](https://github.com/Gioushy/E-Commerce/blob/main/functions/sellerData.sql) <br/>
+• [Products Data Generation Function](https://github.com/Gioushy/E-Commerce/blob/main/functions/productData.sql) <br/>
+• [Category_Products Data Generation Function](https://github.com/Gioushy/E-Commerce/blob/main/functions/category_productsData) <br/>
+• [Customer Data Generation Function](https://github.com/Gioushy/E-Commerce/blob/main/functions/customerData.sql) <br/>
+• [Orders Data Generation Function](https://github.com/Gioushy/E-Commerce/blob/main/functions/orderData.sql) <br/>
+• [Order_Details Data Generation Function](https://github.com/Gioushy/E-Commerce/blob/main/functions/order_detailsData.sql) <br/>
+
+## Optimization:
+In the following are a collection of queries and each one has been optimized with a specific technique in order to decrease its excecution time and increase the efficency of the query: <br/>
+
+• [Write SQL Query to Retrieve the total number of products in each category.](https://github.com/Gioushy/E-Commerce/blob/main/optimization/query1.md) <br/>
+• [Write SQL Query to Find the top customers by total spending.](https://github.com/Gioushy/E-Commerce/blob/main/optimization/query2.md) <br/>
+• [Write SQL Query to Retrieve the most recent orders with customer information with 12 orders.](https://github.com/Gioushy/E-Commerce/blob/main/optimization/query3.md) <br/>
+• [Write SQL Query to List products that have low stock quantities of less than 10 quantities.](https://github.com/Gioushy/E-Commerce/blob/main/optimization/query4.md) <br/>
+• [Write SQL query to search for all products with the word "laptop" in either product name or description.](https://github.com/Gioushy/E-Commerce/blob/main/optimization/query5.md) <br/>
+• [Summary](https://github.com/Gioushy/E-Commerce/blob/main/optimization/summary.md) <br/>
+
+
 
