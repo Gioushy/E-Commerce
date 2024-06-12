@@ -1,4 +1,4 @@
-# Write SQL Query to Find the top customers by total spending.
+# Write SQL Query to Retrieve the most recent orders with customer information with 12 orders.
 ## Initial Query:
 ```
 SELECT O.id AS order_id,O.order_date,O.total_amount,O.customer_id, CONCAT(C.first_name,' ',C.last_name) AS full_name 
