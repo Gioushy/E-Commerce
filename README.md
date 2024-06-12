@@ -79,14 +79,14 @@ As indicated from the above section that there are several types of relationship
  • [Queries Sample](https://github.com/Gioushy/E-Commerce/blob/main/sample.sql) <br/>
 ## Data Generation Functions:
 In the below links are functions that are used to generate data for the whole database with 100 category, 1000 addresses, 10000 sellers, 100k products, 1 million customer, 2 million order and 5 million order_details: <br/>
-• [Categories Data Generation Function](https://github.com/Gioushy/E-Commerce/blob/main/functions/categoryData.sql) <br/>
-• [Addresses Data Generation Function](https://github.com/Gioushy/E-Commerce/blob/main/functions/addressData.sql) <br/>
-• [Sellers Data Generation Function](https://github.com/Gioushy/E-Commerce/blob/main/functions/sellerData.sql) <br/>
-• [Products Data Generation Function](https://github.com/Gioushy/E-Commerce/blob/main/functions/productData.sql) <br/>
-• [Category_Products Data Generation Function](https://github.com/Gioushy/E-Commerce/blob/main/functions/category_productsData) <br/>
-• [Customer Data Generation Function](https://github.com/Gioushy/E-Commerce/blob/main/functions/customerData.sql) <br/>
-• [Orders Data Generation Function](https://github.com/Gioushy/E-Commerce/blob/main/functions/orderData.sql) <br/>
-• [Order_Details Data Generation Function](https://github.com/Gioushy/E-Commerce/blob/main/functions/order_detailsData.sql) <br/>
+• [Categories Data Generation Function](https://github.com/Gioushy/E-Commerce/blob/main/functions/categoryDataFunction.sql) <br/>
+• [Addresses Data Generation Function](https://github.com/Gioushy/E-Commerce/blob/main/functions/addressDataFunction.sql) <br/>
+• [Sellers Data Generation Function](https://github.com/Gioushy/E-Commerce/blob/main/functions/sellerDataFunction.sql) <br/>
+• [Products Data Generation Function](https://github.com/Gioushy/E-Commerce/blob/main/functions/productDataFunction.sql) <br/>
+• [Category_Products Data Generation Function](https://github.com/Gioushy/E-Commerce/blob/main/functions/category_productsDataFunction.sql) <br/>
+• [Customer Data Generation Function](https://github.com/Gioushy/E-Commerce/blob/main/functions/customerDataFunction.sql) <br/>
+• [Orders Data Generation Function](https://github.com/Gioushy/E-Commerce/blob/main/functions/orderDataFunction.sql) <br/>
+• [Order_Details Data Generation Function](https://github.com/Gioushy/E-Commerce/blob/main/functions/order_detailsDataFunction.sql) <br/>
 
 ## Optimization:
 In the following are a collection of queries and each one has been optimized with a specific technique in order to decrease its excecution time and increase the efficency of the query: <br/>
