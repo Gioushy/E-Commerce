@@ -76,5 +76,7 @@ As indicated from the above section that there are several types of relationship
 <br/>
 
  • [Data Definiton Language](https://github.com/Gioushy/E-Commerce/blob/main/ddl.sql) <br/>
- • [Queries Sample](https://github.com/Gioushy/E-Commerce/blob/main/sample.sql)
+ • [Queries Sample](https://github.com/Gioushy/E-Commerce/blob/main/sample.sql) <br/>
+ • [Data Generation Functions](https://github.com/Gioushy/E-Commerce/tree/main/functions) <br/>
+ • [Queries Optimization](https://github.com/Gioushy/E-Commerce/tree/main/optimization)
 
