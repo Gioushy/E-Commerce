@@ -96,7 +96,9 @@ In the following are a collection of queries and each one has been optimized wit
 • [Write SQL Query to Retrieve the most recent orders with customer information with 12 orders.](https://github.com/Gioushy/E-Commerce/blob/main/optimization/query3.md) <br/>
 • [Write SQL Query to List products that have low stock quantities of less than 10 quantities.](https://github.com/Gioushy/E-Commerce/blob/main/optimization/query4.md) <br/>
 • [Write SQL query to search for all products with the word "laptop" in either product name or description.](https://github.com/Gioushy/E-Commerce/blob/main/optimization/query5.md) <br/>
-• [Summary](https://github.com/Gioushy/E-Commerce/blob/main/optimization/summary.md) <br/>
+### Summray: <br/>
+![optimization](https://github.com/Gioushy/E-Commerce/assets/105521854/1b554eba-ce63-46d5-8b1b-079c41accf9e)
+
 
 
 
